@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="apple-touch-icon" sizes="57x57" href="./assets/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="./assets/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="./assets/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="./assets/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="./assets/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="./assets/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="./assets/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="./assets/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="./assets/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+	<link rel="manifest" href="./assets/favicon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="./assets/favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+	<meta charset="utf-8">
+  <title>SEGA CHANNEL</title>
+  <script>
+	window.onload = function() {
+	document.body.style.backgroundColor = "black";
+		//checking for chrome
+		    // Opera 8.0+
+		var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+
+		// Firefox 1.0+
+		var isFirefox = typeof InstallTrigger !== 'undefined';
+
+		// Safari 3.0+ "[object HTMLElementConstructor]" 
+		var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || safari.pushNotification);
+
+		// Internet Explorer 6-11
+		var isIE = /*@cc_on!@*/false || !!document.documentMode;
+
+		// Edge 20+
+		var isEdge = !isIE && !!window.StyleMedia;
+
+		// Chrome 1+
+		var isChrome = !!window.chrome && !!window.chrome.webstore;
+
+		// Blink engine detection
+		var isBlink = (isChrome || isOpera) && !!window.CSS;
+		
+		if (isChrome == true){
+		alert("Unfortunately, due to Google Chrome's autoplay settings being set to not autoplay by default, you don't get to see the cool SEGA Channel intro video, and instead are going to be redirected instantly. Once you reach the next page, click anywhere on the page before the prompt shows up to play music.")
+		alert("Because of this, this website works best in Mozilla Firefox.");
+		window.location.href = './poc/intro.html';
+		}
+		else{
+		console.log("setting video size to available screen size...");
+		var w = window.innerWidth;
+		var h = window.innerHeight;
+		document.getElementById("introVideo").width = w;
+		document.getElementById("introVideo").height = h;
+		console.log("done");
+		
+		}
+	}
+	function startSite() {
+	window.location.href = './poc/intro.html';
+	}
+  </script>
+</head>
+<body>
+<div id="segachannel">
+	<video autoplay="autoplay" src="./assets/intro.mp4" id="introVideo">
+		video not supported
+	</video>
+	<script>
+	document.getElementById('introVideo').addEventListener('ended',myHandler,false);
+    function myHandler(e) {
+        setTimeout(startSite, 3000);
+    }
+	</script>
+</div>
+</body>
+</html>
