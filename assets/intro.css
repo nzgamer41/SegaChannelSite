@@ -1,0 +1,38 @@
+	#image1 {
+	max-width: 100%;
+    height: auto;
+	}
+	body {
+    background-image: url("../assets/tile1.png");
+	}
+    .center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	transform: scale(0.5, 0.5);
+	}
+	
+	
+	@keyframes push {
+    from {
+        margin: -350%;
+    }
+    to {
+        margin: 100%;
+    }
+}
+.marquee {
+    white-space: nowrap;
+    overflow: hidden;
+}
+.marquee > span:nth-child(1) {
+    animation:  60s linear 0s infinite push;
+}
+
+	#text {
+		font-size: 40pt;
+		font-weight: bold;
+		color: white;
+		font-family: "Arial", sans-serif;
+	}
