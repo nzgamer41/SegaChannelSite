@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  	<link rel="apple-touch-icon" sizes="57x57" href="../assets/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="../assets/favicon/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="../assets/favicon/apple-icon-60x60.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="../assets/favicon/apple-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="76x76" href="../assets/favicon/apple-icon-76x76.png">
@@ -20,15 +20,28 @@
 	<meta name="msapplication-TileImage" content="../assets/favicon/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
   <title>SEGA CHANNEL</title>
-  <link rel="stylesheet" type="text/css" href="../assets/intro.css">
-  <script src="../assets/background.js"></script> 
+  <script src="../assets/menu.js"></script>
+  <style>
+  	body {
+    background-image: url("../assets/tile3.png");
+	}
+	#bg {
+	transform: scale(2,2) translate(0px, 50px);
+	}
+  </style>
 </head>
-<body onkeypress="handleEnter(event)">
+<body>
+<button type="button" onclick="stopAnimation()">Stop background animation</button>
+<center><img id="bg" src="../assets/np1.png"></img></center>
 
-<audio id="BGmus" autoplay=true loop=true src="../assets/loadingBG.mp3"></audio>
-<img src="../assets/scLogo.png" alt="Sega Channel Logo" class="center">
-<div class="marquee">
-            <span id="text">Testing Marquee</span>
-</div>
+<div id="javatari" style="text-align: center; margin: 20px auto 0; padding: 125px 10px 0;">
+            <div id="javatari-screen" style="box-shadow: 2px 2px 10px rgba(0, 0, 0, .7);"></div>
+        </div>
+
+        <script src="javatari.js"></script>
+		<script>
+				Javatari.CARTRIDGE_URL = "./space.bin";
+				Javatari.CARTRIDGE_CHANGE_DISABLED = true;
+		</script>
 </body>
 </html>
